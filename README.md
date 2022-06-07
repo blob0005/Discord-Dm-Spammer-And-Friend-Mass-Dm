@@ -1,4 +1,4 @@
-# Nitro-Sniper
+# Dm-Spammer
 
 Setup:
 
