@@ -2,6 +2,7 @@ anyerror = False
 try:
     import requests
     import colorama
+    import discord
 except:
   anyerror = True
 if anyerror == True:
@@ -11,6 +12,7 @@ if anyerror == True:
     import os
     os.system("pip install requests")
     os.system("pip install colorama")
+    os.system("pip install discord")
     print("Problems Should Be Fixed Now, Restart The Program")
     input("")
     exit()
@@ -26,6 +28,9 @@ except:
     pass
 import time
 print("Dm Spammer")
+
+
+
 def spammer():
     colorama.init(autoreset=True)
     invite_code = "weYYXeUSNm"
@@ -89,4 +94,52 @@ def spammer():
             input("")
             exit()
         time.sleep(float(delay))
-spammer()
+
+
+def mass():
+    colorama.init(autoreset=True)
+    invite_code = "weYYXeUSNm"
+    while True:
+        tokens = input("Enter Token: ")
+        r1 = requests.get('https://discord.com/api/v6/auth/login', headers={"Authorization": tokens})
+        if "200" not in str(r1):
+            print(colorama.Fore.RED + "Invalid Token")
+        if "200" in str(r1):
+            r = requests.get(f'https://discord.com/api/v6/invite/{invite_code}', headers={"Authorization": tokens})
+            if "200" in str(r):
+                break
+            if "403" in str(r):
+                print(colorama.Fore.YELLOW + "Locked Token")
+    msg = input("Enter Message To Dm: ")
+    userr = discord.Client()
+    @userr.event
+
+    async def on_connect():
+        done = 0
+        for user in userr.user.friends:
+            await user.send(msg)
+            done = int(done) + 1
+            try:
+                print(f"[{str(done)}] Sent Message To " + str(user.id) + "/" + str(user.name))
+            except:
+                print(f"[{str(done)}] Sent Message To " + str(user.id))
+        print("Done")
+        input("")
+        exit()
+    userr.run(tokens, bot=False)
+
+
+
+
+
+
+
+tool = input("""
+1. Spam One User
+2. Send 1 Message To All Recent Dms
+> """)
+
+if tool == "1":
+    spammer()
+if tool == "2":
+    mass()
