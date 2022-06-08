@@ -117,28 +117,30 @@ def mass():
     async def on_connect():
         done = 0
         for user in userr.user.friends:
-            await user.send(msg)
-            done = int(done) + 1
             try:
-                print(f"[{str(done)}] Sent Message To " + str(user.id) + "/" + str(user.name))
+                await user.send(msg)
+                done = int(done) + 1
+                try:
+                    print(f"[{str(done)}] Sent Message To " + str(user.id) + "/" + str(user.name))
+                except:
+                    print(f"[{str(done)}] Sent Message To " + str(user.id))
             except:
-                print(f"[{str(done)}] Sent Message To " + str(user.id))
+                pass
         print("Done")
         input("")
         exit()
     userr.run(tokens, bot=False)
 
 
-
-
-
-
-
-tool = input("""
+while True:
+    tool = input("""
 1. Spam One User
 2. Send 1 Message To All Recent Dms
 > """)
-
+    if tool == "1" or tool == "2":
+        break
+    else:
+        print("Enter A Valid Choice")
 if tool == "1":
     spammer()
 if tool == "2":
