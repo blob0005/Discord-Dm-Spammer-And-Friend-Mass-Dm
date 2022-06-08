@@ -42,7 +42,7 @@ def spammer():
                 print(colorama.Fore.YELLOW + "Locked Token")
     while True:
         try:
-            id = input("Enter Target Id: ")
+            id = input("Enter Target Id (The Id After /@me/IDHERE In Browser Or Wont Work): ")
             id = int(id)
             break
         except:
@@ -73,7 +73,7 @@ def spammer():
     }
     done = 0
     while True:
-        r = requests.post("https://discord.com/api/v9/channels/981572125712338964/messages", data=data, headers=headers)
+        r = requests.post("https://discord.com/api/v9/channels/"+str(id)+"/messages", data=data, headers=headers)
         req = str(r)
         res = r.json()
         if "200" in req:
