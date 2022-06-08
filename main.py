@@ -23,7 +23,7 @@ if anyerror == True:
 try:
     import os
     from os import system
-    system("title " + "Dm Spammer")
+    system("title " + "Dm Spammer And Mass Dm")
 except:
     pass
 import time
