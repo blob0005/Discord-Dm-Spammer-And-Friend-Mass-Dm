@@ -121,11 +121,11 @@ def mass():
                 await user.send(msg)
                 done = int(done) + 1
                 try:
-                    print(f"[{str(done)}] Sent Message To " + str(user.id) + "/" + str(user.name))
+                    print(colorama.Fore.GREEN + f"[{str(done)}] Sent Message To " + str(user.id) + "/" + str(user.name))
                 except:
-                    print(f"[{str(done)}] Sent Message To " + str(user.id))
+                    print(colorama.Fore.GREEN + f"[{str(done)}] Sent Message To " + str(user.id))
             except:
-                pass
+                print(colorama.Fore.RED + "Unkown Error")
         print("Done")
         input("")
         exit()
