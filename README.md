@@ -1,4 +1,4 @@
-# Dm-Spammer-And-Mass-Dm
+# Discord-Dm-Spammer-And-Friend-Mass-Dm
 
 Setup:
 
