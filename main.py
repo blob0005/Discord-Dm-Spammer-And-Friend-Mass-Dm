@@ -23,7 +23,7 @@ if anyerror == True:
 try:
     import os
     from os import system
-    system("title " + "Dm Spammer And Mass Dm")
+    system("title " + "Discord Dm Spammer And Friend Mass Dm")
 except:
     pass
 import time
@@ -113,7 +113,6 @@ def mass():
     msg = input("Enter Message To Dm: ")
     userr = discord.Client()
     @userr.event
-
     async def on_connect():
         done = 0
         for user in userr.user.friends:
@@ -124,8 +123,8 @@ def mass():
                     print(colorama.Fore.GREEN + f"[{str(done)}] Sent Message To " + str(user.id) + "/" + str(user.name))
                 except:
                     print(colorama.Fore.GREEN + f"[{str(done)}] Sent Message To " + str(user.id))
-            except:
-                print(colorama.Fore.RED + "Unkown Error")
+            except Exception as e:
+                print(colorama.Fore.RED + "Unkown Error" + e)
         print("Done")
         input("")
         exit()
@@ -135,7 +134,7 @@ def mass():
 while True:
     tool = input("""
 1. Spam One User
-2. Send 1 Message To All Recent Dms
+2. Send 1 Message To All Friends
 > """)
     if tool == "1" or tool == "2":
         break
