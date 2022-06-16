@@ -23,7 +23,7 @@ if anyerror == True:
 try:
     import os
     from os import system
-    system("title " + "Discord Dm Spammer And Friend Mass Dm")
+    system("title " + "Discord Dm Spammer And Friend Mass Dm,   Made By blob#0005,   Github: github.com/blob0005")
 except:
     pass
 import time
